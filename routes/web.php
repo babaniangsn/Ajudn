@@ -31,6 +31,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    Route::get('membres/carte', [MembreController::class, 'carte'])->name('membres.carte');
     Route::resource('membres', MembreController::class);
 
     Route::resource('cotisations', CotisationController::class)->except(['show']);

@@ -29,12 +29,14 @@ class Membre extends Model
         'telephone',
         'date_adhesion',
         'statut',
+        'carte',
     ];
 
     protected function casts(): array
     {
         return [
             'date_adhesion' => 'date',
+            'carte' => 'boolean',
         ];
     }
 

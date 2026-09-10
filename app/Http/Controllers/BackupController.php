@@ -95,10 +95,10 @@ class BackupController extends Controller
             $sql .= "\n";
         }
 
-        $adminEmail = env('ADMIN_EMAIL', 'ajudn@gmail.com');
+        $adminEmail = config('admin.email', 'ajudn@gmail.com');
         $admin = User::where('email', $adminEmail)->first();
-        $adminPassword = $admin?->getRawOriginal('password') ?? Hash::make(env('ADMIN_PASSWORD', 'Ajudn2026'));
-        $adminName = $admin?->name ?? 'Administrateur';
+        $adminPassword = $admin?->getRawOriginal('password') ?? Hash::make(config('admin.password', 'Ajudn2026'));
+        $adminName = $admin?->name ?? config('admin.name', 'Administrateur');
         $adminCreatedAt = $admin?->created_at?->format('Y-m-d H:i:s') ?? now()->format('Y-m-d H:i:s');
         $adminUpdatedAt = $admin?->updated_at?->format('Y-m-d H:i:s') ?? $adminCreatedAt;
         $adminValues = [

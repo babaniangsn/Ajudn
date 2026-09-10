@@ -57,6 +57,22 @@ class MembreController extends Controller
         ]);
     }
 
+    public function carte(Request $request): View
+    {
+        $filtre = $request->query('filtre', 'tous');
+
+        $membres = Membre::query()
+            ->when($filtre === 'avec', fn ($q) => $q->where('carte', true))
+            ->when($filtre === 'sans', fn ($q) => $q->where('carte', false))
+            ->orderBy('nom')
+            ->get();
+
+        return view('membres.carte', [
+            'membres' => $membres,
+            'filtre' => $filtre,
+        ]);
+    }
+
     public function edit(Membre $membre): View
     {
         return view('membres.edit', compact('membre'));
@@ -88,11 +104,14 @@ class MembreController extends Controller
             'telephone' => ['nullable', 'string', 'max:30'],
             'date_adhesion' => ['required', 'date'],
             'statut' => ['required', 'in:actif,inactif'],
+            'carte' => ['required', 'boolean'],
         ], [
             'nom.required' => 'Le nom est obligatoire.',
             'prenom.required' => 'Le prénom est obligatoire.',
             'date_adhesion.required' => "La date d'adhésion est obligatoire.",
             'statut.required' => 'Le statut est obligatoire.',
+            'carte.required' => 'Le statut de la carte est obligatoire.',
+            'carte.boolean' => 'Le statut de la carte est invalide.',
         ]);
     }
 }

@@ -106,6 +106,27 @@ body {
     border-color: var(--couleur-primaire-fonce);
 }
 
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    body {
+        background: #fff;
+    }
+    .card {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+    .print-title {
+        border-bottom: 2px solid #0f172a;
+        padding-bottom: 6px;
+    }
+    @page {
+        size: A4 portrait;
+        margin: 15mm;
+    }
+}
+
 @media (max-width: 576px) {
     .stat-card .stat-valeur { font-size: 1.5rem; }
     main { padding: 1rem !important; }
