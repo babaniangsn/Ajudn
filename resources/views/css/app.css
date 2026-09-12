@@ -1,0 +1,134 @@
+:root {
+    --couleur-primaire: #2563eb;
+    --couleur-primaire-fonce: #1d4ed8;
+    --couleur-secondaire: #0f172a;
+    --couleur-succes: #16a34a;
+    --couleur-danger: #dc2626;
+    --couleur-avertissement: #f59e0b;
+    --couleur-fond: #f4f6fb;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--couleur-fond);
+    color: #1f2937;
+}
+
+/* Barre de navigation */
+.app-navbar {
+    background: linear-gradient(135deg, var(--couleur-secondaire), var(--couleur-primaire-fonce));
+}
+.app-navbar .nav-link {
+    font-weight: 500;
+    border-radius: .5rem;
+    margin: 0 .15rem;
+    padding: .5rem .9rem !important;
+}
+.app-navbar .nav-link.active,
+.app-navbar .nav-link:hover {
+    background-color: rgba(255, 255, 255, .12);
+}
+.navbar-brand small { color: #cbd5e1; }
+
+/* Page de connexion */
+.login-body {
+    background: linear-gradient(135deg, var(--couleur-secondaire), var(--couleur-primaire-fonce));
+}
+.login-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+.login-icon {
+    font-size: 2.75rem;
+    color: var(--couleur-primaire);
+}
+
+/* Cartes statistiques du tableau de bord */
+.stat-card {
+    border: none;
+    border-radius: 1rem;
+    color: #fff;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,.15);
+}
+.stat-card .stat-icon {
+    font-size: 2.5rem;
+    opacity: .35;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+.stat-card .stat-valeur { font-size: 2rem; font-weight: 700; }
+.stat-card .stat-label { font-size: .85rem; opacity: .9; }
+
+.bg-grad-blue   { background: linear-gradient(135deg, #2563eb, #1e40af); }
+.bg-grad-green  { background: linear-gradient(135deg, #16a34a, #15803d); }
+.bg-grad-orange { background: linear-gradient(135deg, #f59e0b, #b45309); }
+.bg-grad-purple { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+
+.card {
+    border: none;
+    border-radius: .85rem;
+    box-shadow: 0 4px 14px -6px rgba(0,0,0,.08);
+}
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eef1f6;
+    font-weight: 600;
+    border-radius: .85rem .85rem 0 0 !important;
+}
+
+.table thead th {
+    background-color: #eef2ff;
+    font-weight: 600;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: #334155;
+}
+
+.badge-statut-actif { background-color: #dcfce7; color: #166534; }
+.badge-statut-inactif { background-color: #fee2e2; color: #991b1b; }
+.badge-ajour { background-color: #dcfce7; color: #166534; }
+.badge-retard { background-color: #fee2e2; color: #991b1b; }
+
+.btn-primary {
+    background-color: var(--couleur-primaire);
+    border-color: var(--couleur-primaire);
+}
+.btn-primary:hover {
+    background-color: var(--couleur-primaire-fonce);
+    border-color: var(--couleur-primaire-fonce);
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    body {
+        background: #fff;
+    }
+    .card {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+    .print-title {
+        border-bottom: 2px solid #0f172a;
+        padding-bottom: 6px;
+    }
+    @page {
+        size: A4 portrait;
+        margin: 15mm;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-card .stat-valeur { font-size: 1.5rem; }
+    main { padding: 1rem !important; }
+}
+
