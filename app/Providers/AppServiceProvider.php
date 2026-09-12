@@ -7,6 +7,8 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\DB;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,12 +24,12 @@ class AppServiceProvider extends ServiceProvider
      * Initialise les services de l'application.
      */
     public function boot(): void
-    {
-        // Bootstrap 5 utilise "pagination" avec les classes .page-item / .page-link
-        Paginator::useBootstrapFive();
+{
+    Paginator::useBootstrapFive();
 
+    try {
         if (Schema::hasTable('users')) {
-            User::query()->updateOrCreate(
+            User::updateOrCreate(
                 ['email' => config('admin.email', 'ajudn@gmail.com')],
                 [
                     'name' => config('admin.name', 'Administrateur'),
@@ -35,5 +37,8 @@ class AppServiceProvider extends ServiceProvider
                 ]
             );
         }
+    } catch (\Throwable $e) {
+        // Ignore les erreurs pendant le build ou si la BD n'est pas encore disponible.
     }
+}
 }
