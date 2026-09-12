@@ -31,6 +31,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    Route::get('membres/bureau', [MembreController::class, 'bureau'])->name('membres.bureau');
     Route::get('membres/carte', [MembreController::class, 'carte'])->name('membres.carte');
     Route::resource('membres', MembreController::class);
 
@@ -39,6 +40,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::prefix('exports')->name('exports.')->group(function () {
         Route::get('membres/pdf', [ExportController::class, 'membresPdf'])->name('membres.pdf');
+        Route::get('bureau/pdf', [ExportController::class, 'bureauPdf'])->name('bureau.pdf');
         Route::get('cotisations/pdf', [ExportController::class, 'cotisationsPdf'])->name('cotisations.pdf');
     });
 

@@ -5,11 +5,15 @@
     <title>Reçu {{ $cotisation->reference }}</title>
 
     <style>
+        @page {
+            margin: 15mm;
+        }
+
         body{
             font-family: DejaVu Sans,sans-serif;
             color:#333;
             font-size:12px;
-            margin:35px;
+            margin: 0;
         }
 
         .header{

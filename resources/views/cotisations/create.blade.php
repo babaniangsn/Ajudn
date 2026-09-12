@@ -104,7 +104,7 @@ $moisNoms = [
                             step="1"
                             value="{{ old('montant') }}"
                             class="form-control @error('montant') is-invalid @enderror"
-                            placeholder="10000"
+                            placeholder="500+"
                             required>
 
                         @error('montant')

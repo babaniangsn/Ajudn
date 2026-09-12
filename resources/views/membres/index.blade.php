@@ -112,6 +112,7 @@
 
                 <tr>
                     <th>Membre</th>
+                    <th class="d-none d-lg-table-cell">Rôle</th>
                     <th class="d-none d-lg-table-cell">Téléphone</th>
                     <th class="d-none d-lg-table-cell">Adhésion</th>
                     <th>Statut</th>
@@ -132,6 +133,14 @@
                         </div>
 
                         
+                    </td>
+
+                    <td class="d-none d-lg-table-cell">
+                        @if($membre->role)
+                            <span class="badge bg-primary rounded-pill">{{ $membre->role }}</span>
+                        @else
+                            <span class="text-muted">—</span>
+                        @endif
                     </td>
 
                     <td class="d-none d-lg-table-cell">

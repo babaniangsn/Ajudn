@@ -27,6 +27,28 @@
 
 @auth
 
+<style>
+    .navbar .nav-link {
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+        padding: 0.6rem 0.9rem;
+        background: rgba(0, 0, 0, 0.41);
+        font-weight: 500;
+        color: #ffffff !important;
+    }
+
+    .navbar .nav-link:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff !important;
+    }
+
+    .navbar .nav-link.active {
+        background: rgba(243, 240, 240, 0.99);
+        color: #010044 !important;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top" style="background: #140035">
 
     <div class="container-fluid">
@@ -65,10 +87,18 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('membres.*') ? 'active fw-bold' : '' }}"
+                    <a class="nav-link {{ request()->routeIs('membres.index') || request()->routeIs('membres.create') || request()->routeIs('membres.edit') || request()->routeIs('membres.show') ? 'active fw-bold' : '' }}"
                         href="{{ route('membres.index') }}">
                         <i class="bi bi-people me-1"></i>
                         Membres
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('membres.bureau') ? 'active fw-bold' : '' }}"
+                        href="{{ route('membres.bureau') }}">
+                        <i class="bi bi-person-badge me-1"></i>
+                        Bureau
                     </a>
                 </li>
 

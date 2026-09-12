@@ -73,6 +73,20 @@ class MembreController extends Controller
         ]);
     }
 
+    public function bureau(): View
+    {
+        $membres = Membre::query()
+            ->whereNotNull('role')
+            ->where('role', '!=', '')
+            ->orderBy('role')
+            ->orderBy('nom')
+            ->get();
+
+        return view('membres.bureau', [
+            'membres' => $membres,
+        ]);
+    }
+
     public function edit(Membre $membre): View
     {
         return view('membres.edit', compact('membre'));
@@ -104,12 +118,14 @@ class MembreController extends Controller
             'telephone' => ['nullable', 'string', 'max:30'],
             'date_adhesion' => ['required', 'date'],
             'statut' => ['required', 'in:actif,inactif'],
+            'role' => ['nullable', 'string', 'max:100'],
             'carte' => ['required', 'boolean'],
         ], [
             'nom.required' => 'Le nom est obligatoire.',
             'prenom.required' => 'Le prénom est obligatoire.',
             'date_adhesion.required' => "La date d'adhésion est obligatoire.",
             'statut.required' => 'Le statut est obligatoire.',
+            'role.max' => 'Le rôle est trop long.',
             'carte.required' => 'Le statut de la carte est obligatoire.',
             'carte.boolean' => 'Le statut de la carte est invalide.',
         ]);

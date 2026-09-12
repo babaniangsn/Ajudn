@@ -114,6 +114,59 @@
                 @enderror
             </div>
 
+            <!-- Rôle -->
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">
+                    <i class="bi bi-person-vcard-fill text-primary me-1"></i>
+                    Rôle au bureau
+                </label>
+
+                <select
+                    name="role"
+                    class="form-select @error('role') is-invalid @enderror">
+
+                    <option value=""
+                        @selected(old('role', $membre?->role ?? '') === '')>
+                        Aucun rôle
+                    </option>
+
+                    <option value="Président"
+                        @selected(old('role', $membre?->role ?? '') == 'Président')>
+                        Président
+                    </option>
+
+                    <option value="Vice-président"
+                        @selected(old('role', $membre?->role ?? '') == 'Vice-président')>
+                        Vice-président
+                    </option>
+
+                    <option value="Secrétaire"
+                        @selected(old('role', $membre?->role ?? '') == 'Secrétaire')>
+                        Secrétaire
+                    </option>
+
+                    <option value="Trésorier"
+                        @selected(old('role', $membre?->role ?? '') == 'Trésorier')>
+                        Trésorier
+                    </option>
+
+                    <option value="Trésorière"
+                        @selected(old('role', $membre?->role ?? '') == 'Trésorière')>
+                        Trésorière
+                    </option>
+
+                    <option value="Membre"
+                        @selected(old('role', $membre?->role ?? '') == 'Membre')>
+                        Membre
+                    </option>
+
+                </select>
+
+                @error('role')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
             <!-- Carte -->
             <div class="col-md-6">
                 <label class="form-label fw-semibold">

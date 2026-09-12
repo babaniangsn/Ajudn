@@ -29,6 +29,7 @@ class Membre extends Model
         'telephone',
         'date_adhesion',
         'statut',
+        'role',
         'carte',
     ];
 
