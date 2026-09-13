@@ -47,7 +47,6 @@
                         <tr>
                             <td>
                                 <div class="fw-semibold">{{ $membre->nom_complet }}</div>
-                                <small class="text-muted">{{ $membre->matricule }}</small>
                             </td>
                             <td>
                                 <span class="badge bg-primary rounded-pill">{{ $membre->role }}</span>

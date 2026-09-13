@@ -20,6 +20,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/logo.png') }}">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+
     @stack('styles')
 </head>
 
@@ -54,7 +58,7 @@
     <div class="container-fluid">
 
         <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ route('dashboard') }}">
-            <i class="bi bi-people-fill fs-3 me-2"></i>
+            <img src="{{ asset('img/logo.jpg') }}" alt="Logo AJUDN" style="width: 42px; height: 42px; object-fit: cover; border-radius: 50%; border: 2px solid rgba(255,255,255,0.35);" class="me-2">
 
             <div>
                 <div>AJUDN</div>

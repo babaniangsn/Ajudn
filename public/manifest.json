@@ -1,0 +1,20 @@
+{
+  "name": "AJUDN Gestion des Cotisations",
+  "short_name": "AJUDN",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#140035",
+  "theme_color": "#140035",
+  "icons": [
+    {
+      "src": "/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
