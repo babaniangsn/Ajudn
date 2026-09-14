@@ -19,12 +19,6 @@ COPY . .
 # Installer les dépendances PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Installer Node.js
-COPY --from=node:22 /usr/local /usr/local
-
-# Installer les dépendances JS et compiler Vite
-RUN npm install && npm run build
-
 # Optimisations Laravel
 RUN php artisan config:cache
 RUN php artisan route:cache
