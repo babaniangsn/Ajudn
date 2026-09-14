@@ -19,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-    
 
     /**
      * Initialise les services de l'application.
