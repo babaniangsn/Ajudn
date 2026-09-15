@@ -136,7 +136,6 @@
             <th>Membre</th>
             <th>Période</th>
             <th>Montant</th>
-            <th>Date de paiement</th>
         </tr>
     </thead>
 
@@ -148,17 +147,15 @@
 
             <td>{{ $loop->iteration }}</td>
 
-            <td>{{ $cotisation->membre->nom_complet }}</td>
+            <td><strong>{{ $cotisation->membre->nom_complet }}</strong></td>
 
             <td>{{ $cotisation->periode_libelle }}</td>
 
             <td class="text-right">
-                {{ number_format($cotisation->montant,0,',',' ') }} FCFA
-            </td>
+                <strong>{{ number_format($cotisation->montant,0,',',' ') }} FCFA
+            </strong></td>
 
             <td>
-                {{ $cotisation->date_paiement->format('d/m/Y') }}
-            </td>
 
         </tr>
 
