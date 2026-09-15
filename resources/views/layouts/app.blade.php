@@ -258,8 +258,6 @@
 
             <strong>AJUDN</strong>
 
-            — Application Professionnelle de Gestion des Cotisations
-
         </small>
 
     </div>
