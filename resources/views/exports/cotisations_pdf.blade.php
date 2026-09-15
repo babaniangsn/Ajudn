@@ -115,10 +115,6 @@
 <div class="info">
     <table>
         <tr>
-            <td>
-                <strong>Date d'impression :</strong>
-                {{ now()->format('d/m/Y H:i') }}
-            </td>
 
             <td class="text-right">
                 <strong>Nombre de paiements :</strong>
@@ -155,8 +151,6 @@
                 <strong>{{ number_format($cotisation->montant,0,',',' ') }} FCFA
             </strong></td>
 
-            <td>
-
         </tr>
 
     @endforeach
@@ -185,7 +179,6 @@
 
 <div class="footer">
 
-    Document généré automatiquement par le système de gestion des cotisations AJUDN.
 
 </div>
 
