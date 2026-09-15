@@ -63,7 +63,6 @@
             <div>
                 <div>AJUDN</div>
                 <small class="fw-normal" style="font-size:12px">
-                    Gestion des Cotisations
                 </small>
             </div>
 
