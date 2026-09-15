@@ -33,7 +33,7 @@ class CotisationController extends Controller
     public function create(Request $request): View
     {
         return view('cotisations.create', [
-            'membres' => Membre::orderBy('nom')->get(),
+            'membres' => Membre::orderBy('nom')->orderBy('prenom')->get(),
             'membreSelectionne' => $request->integer('membre_id'),
         ]);
     }
@@ -77,7 +77,7 @@ class CotisationController extends Controller
     {
         return view('cotisations.edit', [
             'cotisation' => $cotisation,
-            'membres' => Membre::orderBy('nom')->get(),
+            'membres' => Membre::orderBy('nom')->orderBy('prenom')->get(),
         ]);
     }
 

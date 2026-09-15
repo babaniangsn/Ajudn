@@ -14,7 +14,7 @@ class ExportController extends Controller
 {
     public function membresPdf(): Response
     {
-        $membres = Membre::orderBy('nom')->get();
+        $membres = Membre::orderBy('nom')->orderBy('prenom')->get();
 
         $pdf = Pdf::loadView('exports.membres_pdf', compact('membres'))->setPaper('a4', 'landscape');
 
@@ -26,8 +26,8 @@ class ExportController extends Controller
         $membres = Membre::query()
             ->whereNotNull('role')
             ->where('role', '!=', '')
-            ->orderBy('role')
             ->orderBy('nom')
+            ->orderBy('prenom')
             ->get();
 
         $pdf = Pdf::loadView('exports.bureau_pdf', compact('membres'))->setPaper('a4', 'landscape');

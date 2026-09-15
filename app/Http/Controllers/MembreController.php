@@ -18,6 +18,7 @@ class MembreController extends Controller
             ->recherche($request->query('q'))
             ->when($request->filled('statut'), fn ($q) => $q->where('statut', $request->query('statut')))
             ->orderBy('nom')
+            ->orderBy('prenom')
             ->paginate(10)
             ->withQueryString();
 
@@ -65,6 +66,7 @@ class MembreController extends Controller
             ->when($filtre === 'avec', fn ($q) => $q->where('carte', true))
             ->when($filtre === 'sans', fn ($q) => $q->where('carte', false))
             ->orderBy('nom')
+            ->orderBy('prenom')
             ->get();
 
         return view('membres.carte', [
@@ -78,8 +80,8 @@ class MembreController extends Controller
         $membres = Membre::query()
             ->whereNotNull('role')
             ->where('role', '!=', '')
-            ->orderBy('role')
             ->orderBy('nom')
+            ->orderBy('prenom')
             ->get();
 
         return view('membres.bureau', [

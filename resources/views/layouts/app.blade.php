@@ -22,6 +22,7 @@
 
     <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('img/logo.png') }}">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
 
     @stack('styles')
 </head>
